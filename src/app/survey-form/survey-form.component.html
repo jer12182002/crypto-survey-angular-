@@ -1,0 +1,57 @@
+<div>
+  <h5>{{ todayDate | date: "short" }}</h5>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <label for="name" class="font-weight-bold">Name</label>
+    <input
+      type="text"
+      id="name"
+      class="form-control"
+      [(ngModel)]="cryptoSurvey.name"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="cryptos" class="font-weight-bold">Favourite Crypto</label>
+    <select id="cryptos" class="form-control">
+      <option value="">Please select the crypto</option>
+      <option [value]="crypto.name" *ngFor="let crypto of cryptos">{{
+        crypto.name
+      }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <label for="loveCrypto" class="font-weight-bold">Do you love crypto</label>
+    <select id="loveCrypto" class="form-control">
+      <option value="true">{{ "true" | pipeinfo }}</option>
+      <option vlaue="false">{{ "false" | pipeinfo }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <label for="comments" class="font-weight-bold">Comments</label>
+    <textarea
+      id="comments"
+      class="form-control"
+      [(ngModel)]="cryptoSurvey.comments"
+    ></textarea>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <button
+      [routerLink]="[submitted]"
+      class="btn btn-outline-success btn-block"
+      (click)="sendForm()"
+    >
+      Submit Form
+    </button>
+  </div>
+</div>
